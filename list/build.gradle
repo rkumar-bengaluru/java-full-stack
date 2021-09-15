@@ -3,6 +3,6 @@
  */
 
 plugins {
-    id 'org.java.stack.java-library-conventions'
+    id 'org.java.full.stack.java-library-conventions'
+    id 'eclipse'
 }
-apply plugin: 'eclipse'

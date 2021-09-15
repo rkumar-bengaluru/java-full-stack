@@ -3,10 +3,10 @@
  */
 
 plugins {
-    id 'org.java.stack.java-library-conventions'
+    id 'org.java.full.stack.java-library-conventions'
+    id 'eclipse'
 }
 
 dependencies {
     api project(':list')
 }
-apply plugin: 'eclipse'

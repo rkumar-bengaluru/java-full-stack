@@ -3,7 +3,8 @@
  */
 
 plugins {
-    id 'org.java.stack.java-application-conventions'
+    id 'org.java.full.stack.java-application-conventions'
+    id 'eclipse'
 }
 
 dependencies {
@@ -13,6 +14,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'org.java.stack.app.App'
+    mainClass = 'org.java.full.stack.app.App'
 }
-apply plugin: 'eclipse'
