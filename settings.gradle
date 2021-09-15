@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'java-full-stack'
-include('app', 'list', 'utilities')
+include('app', 'java-15', 'utilities')

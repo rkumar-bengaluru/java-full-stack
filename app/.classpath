@@ -33,7 +33,7 @@
 			<attribute name="without_test_code" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="/list">
+	<classpathentry kind="src" path="/java-15">
 		<attributes>
 			<attribute name="without_test_code" value="true"/>
 		</attributes>
