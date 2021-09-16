@@ -12,7 +12,7 @@ package org.java.full.stack.java14;
  * @author Rupak Kumar...
  *
  */
-public class RecordJEP359 {
+public class J14RecordJEP359 {
 	record Point(int x, int y) {
 	}
 

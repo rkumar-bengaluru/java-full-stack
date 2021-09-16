@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Base64;
 
-public class HiddenClassDemo {
+public class J15HiddenClassDemo {
 	/**
 	 * Reads the hidden class byte codes as base64 encoded string.
 	 * 

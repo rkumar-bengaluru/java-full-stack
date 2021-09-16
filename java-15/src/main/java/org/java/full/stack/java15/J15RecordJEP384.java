@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
  * 
  * @author Rupak Kumar...
  */
-public class RecordJEP384 {
+public class J15RecordJEP384 {
 	
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target(ElementType.FIELD)

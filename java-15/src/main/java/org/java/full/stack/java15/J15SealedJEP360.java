@@ -6,7 +6,7 @@ package org.java.full.stack.java15;
  * 
  * @author Rupak Kumar...
  */
-public class SealedJEP360 {
+public class J15SealedJEP360 {
 	// sealed interface with allowed sub types.
 	public abstract sealed interface Shape permits Circle,Square,AbstractRectangle {
 		void draw();

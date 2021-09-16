@@ -1,6 +1,6 @@
 package org.java.full.stack.java15;
 
-public class TextBlocks {
+public class J15TextBlocks {
 
 	private static final String twoDimensionalCodeBlock = """
 				<html>
