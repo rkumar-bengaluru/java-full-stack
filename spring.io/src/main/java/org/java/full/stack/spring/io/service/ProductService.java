@@ -1,9 +1,10 @@
 package org.java.full.stack.spring.io.service;
 
 import java.util.List;
+import java.util.Set;
 
-import org.java.full.stack.spring.io.model.Product;
-import org.java.full.stack.spring.io.repository.ProductRepository;
+import org.java.full.stack.spring.io.model.LocalShopProduct;
+import org.java.full.stack.spring.io.repository.LocalShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,21 +12,26 @@ import org.springframework.stereotype.Service;
 public class ProductService {
 
 	@Autowired
-	private ProductRepository productRepo;
+	private LocalShopRepository repo;
 
-	public void save(Product p) {
-		productRepo.save(p);
+	public LocalShopProduct save(LocalShopProduct p) {
+		return repo.getProductRepo().save(p);
 	}
 
-	public List<Product> findAll() {
-		return productRepo.findAll();
+	// product
+	public List<LocalShopProduct> findAll() {
+		return repo.getProductRepo().findAll();
 	}
 
-	public List<Product> findByName(String name) {
-		return productRepo.findByName(name);
+	public Set<LocalShopProduct> findByName(String name) {
+		return repo.getProductRepo().findByName(name);
 	}
 
-	public Product findById(long id) {
-		return productRepo.findById(id);
+	public LocalShopProduct findById(long id) {
+		return repo.getProductRepo().findById(id);
+	}
+	
+	public LocalShopRepository repo() {
+		return repo;
 	}
 }

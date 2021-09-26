@@ -1,10 +1,9 @@
 package org.java.full.stack.spring.io.controller;
 
 import java.util.List;
-import java.util.Set;
 
-import org.java.full.stack.spring.io.model.LocalShopProduct;
-import org.java.full.stack.spring.io.service.ProductService;
+import org.java.full.stack.spring.io.model.LocalShopCustomer;
+import org.java.full.stack.spring.io.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,44 +24,43 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping("/products")
-public class ProductController {
+@RequestMapping("/customers")
+public class CustomerController {
 
 	Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Autowired
-	private ProductService productService;
+	private CustomerService svc;
 
 	@GetMapping("")
-	public List<LocalShopProduct> all() {
-		return productService.findAll();
+	public List<LocalShopCustomer> all() {
+		return svc.findAll();
 	}
 
-	@GetMapping("name/{name}")
-	public Set<LocalShopProduct> findByName(@PathVariable String name) {
+	@GetMapping("/{name}")
+	public List<LocalShopCustomer> findByName(@PathVariable String name) {
 		logger.info("/name->" + name);
-		return productService.findByName(name);
+		return svc.findByName(name);
 	}
 
 	@PostMapping("/create")
-	public LocalShopProduct newEmployee(@RequestBody LocalShopProduct newProduct) {
-		logger.debug("product recvd-->" + newProduct.getName());
-		return productService.save(newProduct);
+	public LocalShopCustomer newEmployee(@RequestBody LocalShopCustomer newProduct) {
+		return svc.save(newProduct);
 	}
 
-	@GetMapping("id/{id}")
-	public LocalShopProduct findById(@PathVariable Long id) {
-		return productService.findById(id);
+	@GetMapping("/{id}")
+	public LocalShopCustomer findById(@PathVariable Long id) {
+		return svc.findById(id);
 	}
 
 	@PutMapping("/update")
-	public LocalShopProduct update(@RequestBody LocalShopProduct newProduct) {
-		return productService.save(newProduct);
+	public LocalShopCustomer update(@RequestBody LocalShopCustomer newProduct) {
+		return svc.save(newProduct);
 	}
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/employees/{id}")
 	public void delete(@PathVariable Long id) {
-		productService.repo().getProductRepo().deleteById(id);
+		svc.repo().getProductRepo().deleteById(id);
 	}
 
 }

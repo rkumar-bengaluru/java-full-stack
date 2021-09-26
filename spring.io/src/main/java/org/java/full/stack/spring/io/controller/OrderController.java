@@ -3,8 +3,9 @@ package org.java.full.stack.spring.io.controller;
 import java.util.List;
 import java.util.Set;
 
+import org.java.full.stack.spring.io.model.LocalShopOrder;
 import org.java.full.stack.spring.io.model.LocalShopProduct;
-import org.java.full.stack.spring.io.service.ProductService;
+import org.java.full.stack.spring.io.service.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,44 +26,31 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping("/products")
-public class ProductController {
+@RequestMapping("/orders")
+public class OrderController {
 
 	Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Autowired
-	private ProductService productService;
+	private OrderService service;
 
 	@GetMapping("")
-	public List<LocalShopProduct> all() {
-		return productService.findAll();
-	}
-
-	@GetMapping("name/{name}")
-	public Set<LocalShopProduct> findByName(@PathVariable String name) {
-		logger.info("/name->" + name);
-		return productService.findByName(name);
+	public List<LocalShopOrder> all() {
+		return service.findAll();
 	}
 
 	@PostMapping("/create")
-	public LocalShopProduct newEmployee(@RequestBody LocalShopProduct newProduct) {
-		logger.debug("product recvd-->" + newProduct.getName());
-		return productService.save(newProduct);
+	public LocalShopOrder newEmployee(@RequestBody LocalShopOrder newProduct) {
+		return service.save(newProduct);
 	}
 
-	@GetMapping("id/{id}")
-	public LocalShopProduct findById(@PathVariable Long id) {
-		return productService.findById(id);
+	@GetMapping("/{id}")
+	public LocalShopOrder findById(@PathVariable Long id) {
+		return service.findById(id);
 	}
 
 	@PutMapping("/update")
-	public LocalShopProduct update(@RequestBody LocalShopProduct newProduct) {
-		return productService.save(newProduct);
+	public LocalShopOrder update(@RequestBody LocalShopOrder newProduct) {
+		return service.save(newProduct);
 	}
-
-	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id) {
-		productService.repo().getProductRepo().deleteById(id);
-	}
-
 }

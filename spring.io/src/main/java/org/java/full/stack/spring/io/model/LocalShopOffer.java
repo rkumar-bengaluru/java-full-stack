@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "offers")
-public class Offer {
+public class LocalShopOffer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -58,14 +58,14 @@ public class Offer {
 	private Integer price;
 	private String[] images;
 
-	public static Offer createOffer(String name, String availability, Integer price, String[] images) {
-		return new Offer(name, availability, price, images);
+	public static LocalShopOffer createOffer(String name, String availability, Integer price, String[] images) {
+		return new LocalShopOffer(name, availability, price, images);
 	}
 
-	public Offer() {
+	public LocalShopOffer() {
 	}
 
-	private Offer(String name, String availability, Integer price, String[] images) {
+	private LocalShopOffer(String name, String availability, Integer price, String[] images) {
 		super();
 		this.name = name;
 		this.availability = availability;

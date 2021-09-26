@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "products")
-public class Product {
+public class LocalShopProduct {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,14 +23,14 @@ public class Product {
 	private String name;
 	private String sku;
 	private String mpn;
-	@OneToMany(targetEntity=Offer.class,cascade=CascadeType.ALL)
-	private Set<Offer> offers = new HashSet<>();
+	@OneToMany(targetEntity=LocalShopOffer.class,cascade=CascadeType.ALL)
+	private Set<LocalShopOffer> offers = new HashSet<>();
 	private int price;
 
-	protected Product() {
+	protected LocalShopProduct() {
 	}
 
-	public Product(String name, int price) {
+	public LocalShopProduct(String name, int price) {
 		this.name = name;
 		this.price = price;
 	}
@@ -53,7 +53,7 @@ public class Product {
 		return price;
 	}
 
-	public void addOffer(Offer offer) {
+	public void addOffer(LocalShopOffer offer) {
 		getOffers().add(offer);
 	}
 
@@ -89,7 +89,7 @@ public class Product {
 		this.name = name;
 	}
 
-	public void setOffers(Set<Offer> offers) {
+	public void setOffers(Set<LocalShopOffer> offers) {
 		this.offers = offers;
 	}
 
@@ -97,15 +97,15 @@ public class Product {
 		this.price = price;
 	}
 
-	public Collection<Offer> getOffers() {
+	public Collection<LocalShopOffer> getOffers() {
 		return offers;
 	}
 
-	public static Product createProduct(String productID, String name, String sku, String mpn, int price) {
-		return new Product(productID, name, sku, mpn, price);
+	public static LocalShopProduct createProduct(String productID, String name, String sku, String mpn, int price) {
+		return new LocalShopProduct(productID, name, sku, mpn, price);
 	}
 
-	private Product(String productID, String name, String sku, String mpn, int price) {
+	private LocalShopProduct(String productID, String name, String sku, String mpn, int price) {
 		super();
 		this.productID = productID;
 		this.name = name;
