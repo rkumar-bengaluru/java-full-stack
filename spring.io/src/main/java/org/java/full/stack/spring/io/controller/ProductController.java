@@ -60,9 +60,19 @@ public class ProductController {
 		return productService.save(newProduct);
 	}
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{id}")	
 	public void delete(@PathVariable Long id) {
 		productService.repo().getProductRepo().deleteById(id);
 	}
-
+	@GetMapping("/hangapi")
+	public List<LocalShopProduct> hangapi() {
+		logger.info("this api will take 2 minutes to execute");
+		try {
+			Thread.sleep(120000L);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return productService.findAll();
+	}
 }

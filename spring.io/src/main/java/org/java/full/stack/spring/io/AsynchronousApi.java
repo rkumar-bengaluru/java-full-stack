@@ -27,7 +27,7 @@ public class AsynchronousApi implements CommandLineRunner {
 		CompletableFuture<LocalShopOrder[]> orders = l.fetchOrders();
 		CompletableFuture<LocalShopProduct[]> products = l.fetchProducts();
 		l.fetchCustomers();
-		// CompletableFuture.allOf(orders, products, customers).join();
+		CompletableFuture.allOf(orders, products).join();
 		logger.info("recvd orders is : " + orders.get().length);
 		logger.info("recvd products is : " + products.get().length);
 	}
