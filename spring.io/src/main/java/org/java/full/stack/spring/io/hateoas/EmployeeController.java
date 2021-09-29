@@ -23,22 +23,29 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService service;
 
-
-	@GetMapping("")
+	@GetMapping("") // CollectionModel
 	public ResponseEntity<CollectionModel<EntityModel<Employee>>> all() {
+		// get stream of employees
 		Stream<Employee> all = service.all().stream();
+		// map each employee to EntityModel with links.
 		List<EntityModel<Employee>> a = all.map(e -> {
 			return EntityModel.of(e, linkTo(methodOn(EmployeeController.class).findOne(e.id())).withSelfRel());
 		}).collect(Collectors.toList());
-		return ResponseEntity.ok(CollectionModel.of(a));
+		// convert list to CollectionModel with links.
+		return ResponseEntity
+				.ok(CollectionModel.of(a, linkTo(methodOn(EmployeeController.class).all()).withRel("employees")));
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/{id}") // EntityModel
 	public ResponseEntity<EntityModel<Employee>> findOne(@PathVariable Long id) {
-
-		return service.findById(id).map(e -> {
+		// get stream of employees
+		Stream<Employee> all = service.findById(id);
+		// map each employee to EntityModel with self link
+		Stream<EntityModel<Employee>> allEntityModel = all.map(e -> {
 			return EntityModel.of(e, linkTo(methodOn(EmployeeController.class).findOne(e.getId().get())).withSelfRel(),
 					linkTo(methodOn(EmployeeController.class).all()).withRel("employees"));
-		}).map(ResponseEntity::ok).findFirst().get();
+		});
+		// convert from EntityModel to ResponseEntity
+		return allEntityModel.map(ResponseEntity::ok).findFirst().get();
 	}
 }

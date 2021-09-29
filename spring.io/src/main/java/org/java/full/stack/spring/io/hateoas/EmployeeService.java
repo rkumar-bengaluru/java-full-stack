@@ -12,9 +12,9 @@ public class EmployeeService {
 
 	public EmployeeService() {
 		all.add(new Employee(1L, "Rupak", "Kumar", "Admin"));
-		all.add(new Employee(2L, "Rupak1", "Kumar1", "Admin"));
-		all.add(new Employee(3L, "Rupak2", "Kumar1", "Admin"));
-		all.add(new Employee(4L, "Rupak3", "Kumar1", "Admin"));
+		all.add(new Employee(2L, "Raj", "Aryan", "User"));
+		all.add(new Employee(3L, "Amrita", "Sinha", "User"));
+		all.add(new Employee(4L, "Anurag", "Kumar", "User"));
 	}
 
 	public List<Employee> all() {
