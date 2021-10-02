@@ -19,7 +19,7 @@ import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig;
 import io.github.resilience4j.timelimiter.TimeLimiterConfig;
 import reactor.netty.http.client.HttpClient;
 
-@SpringBootApplication (scanBasePackages = { "org.java.full.stack.spring.io"})
+@SpringBootApplication (scanBasePackages = { "org.java.full.stack.spring.io", "org.java.full.stack.spring.security"})
 @ComponentScan(basePackages = {"org.java.full.stack.spring.io"})
 @EnableAsync
 public class Application {
