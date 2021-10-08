@@ -2,7 +2,6 @@ package org.java.full.stack.spring.io;
 
 import java.util.concurrent.CompletableFuture;
 
-import org.java.full.stack.spring.io.model.LocalShopCustomer;
 import org.java.full.stack.spring.io.model.LocalShopOrder;
 import org.java.full.stack.spring.io.model.LocalShopProduct;
 import org.slf4j.Logger;
@@ -24,12 +23,12 @@ public class AsynchronousApi implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		CompletableFuture<LocalShopOrder[]> orders = l.fetchOrders();
-		CompletableFuture<LocalShopProduct[]> products = l.fetchProducts();
-		l.fetchCustomers();
-		CompletableFuture.allOf(orders, products).join();
-		logger.info("recvd orders is : " + orders.get().length);
-		logger.info("recvd products is : " + products.get().length);
+//		CompletableFuture<LocalShopOrder[]> orders = l.fetchOrders();
+//		CompletableFuture<LocalShopProduct[]> products = l.fetchProducts();
+//		l.fetchCustomers();
+//		CompletableFuture.allOf(orders, products).join();
+//		logger.info("recvd orders is : " + orders.get().length);
+//		logger.info("recvd products is : " + products.get().length);
 	}
 
 }

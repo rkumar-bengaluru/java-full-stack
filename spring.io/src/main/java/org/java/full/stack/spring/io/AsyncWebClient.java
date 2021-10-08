@@ -1,7 +1,5 @@
 package org.java.full.stack.spring.io;
 
-import java.util.List;
-
 import org.java.full.stack.spring.io.model.LocalShopProduct;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;

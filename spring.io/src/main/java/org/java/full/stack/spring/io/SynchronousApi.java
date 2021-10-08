@@ -43,12 +43,12 @@ public class SynchronousApi implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info("rest template example....");
-		LocalShopOrder[] orders = getOrders();
-		LocalShopProduct[] products = getProducts();
-		LocalShopCustomer[] customers = getCustomers();
-		logger.info("recvd orders is : " + orders.length);
-		logger.info("recvd products is : " + products.length);
-		logger.info("recvd customers is : " + customers.length);
+//		LocalShopOrder[] orders = getOrders();
+//		LocalShopProduct[] products = getProducts();
+//		LocalShopCustomer[] customers = getCustomers();
+//		logger.info("recvd orders is : " + orders.length);
+//		logger.info("recvd products is : " + products.length);
+//		logger.info("recvd customers is : " + customers.length);
 	}
 
 }
